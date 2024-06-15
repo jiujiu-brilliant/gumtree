@@ -25,8 +25,8 @@ allprojects {
 
 subprojects {
     apply plugin: 'java'
-    sourceCompatibility = '17'
-    targetCompatibility = '17'
+    sourceCompatibility = '16'
+    targetCompatibility = '16'
 
     compileJava {
         options.compilerArgs << '-Xlint:deprecation'
@@ -147,36 +147,36 @@ task jacocoRootReport(type: JacocoReport, group: 'Coverage reports') {
 }
 
 def projectDescriptions = [
-    'client': 'GumTree abstract client module.',
-    'client.diff': 'GumTree diff client.',
-    'core': 'GumTree core module.', 'gen.antlr3': 'GumTree abstract AntLR module.',
-    'gen.antlr3-antlr': 'GumTree tree generator for AntLR grammars (AntLR based)',
-    'gen.antlr3-json': 'GumTree tree generator for JSON code (AntLR based).',
-    'gen.antlr3-php': 'GumTree tree generator for PHP code (AntLR based).',
-    'gen.antlr3-r': 'GumTree tree generator for R code (AntLR based).',
-    'gen.antlr3-xml': 'GumTree tree generator for XML code (AntLR based).',
-    'gen.antlr4': 'GumTree abstract AntLR4 module.',
-    'gen.antlr4-matlab': 'GumTree abstract AntLR4 module.',
-    'gen.c': 'GumTree tree generator for C code. Requires cgum.',
-    'gen.css': 'GumTree tree generator for CSS code based on ph-css.',
-    'gen.javaparser': 'GumTree tree generator for Java code (JavaParser based).',
-    'gen.jdt': 'GumTree tree generator for Java code (Eclipse JDT based).',
-    'gen.js': 'GumTree tree generator for JavaScript code (Rhino based).',
-    'gen.js-acorn': 'GumTree tree generator for JS. Requires jsparser.',
-    'gen.python': 'GumTree tree generator for Python. Requires pythonparser.',
-    'gen.ruby': 'GumTree tree generator for Ruby code (JRuby based).',
-    'gen.srcml': 'GumTree tree generator for C/C++, C# and Java code. Requires srcml.',
-    'gen.treesitter': 'GumTree tree generator for Python. Requires tree-sitter-parser.',
-    'gen.treesitter-ng': 'GumTree tree generator for tree-sitter-ng.',
-    'gen.xml': 'GumTree tree generator for XML code (JSoup based).',
-    'gen.yaml': 'GumTree tree generator for YAML code (SnakeYAML based).',
+        'client': 'GumTree abstract client module.',
+        'client.diff': 'GumTree diff client.',
+        'core': 'GumTree core module.', 'gen.antlr3': 'GumTree abstract AntLR module.',
+        'gen.antlr3-antlr': 'GumTree tree generator for AntLR grammars (AntLR based)',
+        'gen.antlr3-json': 'GumTree tree generator for JSON code (AntLR based).',
+        'gen.antlr3-php': 'GumTree tree generator for PHP code (AntLR based).',
+        'gen.antlr3-r': 'GumTree tree generator for R code (AntLR based).',
+        'gen.antlr3-xml': 'GumTree tree generator for XML code (AntLR based).',
+        'gen.antlr4': 'GumTree abstract AntLR4 module.',
+        'gen.antlr4-matlab': 'GumTree abstract AntLR4 module.',
+        'gen.c': 'GumTree tree generator for C code. Requires cgum.',
+        'gen.css': 'GumTree tree generator for CSS code based on ph-css.',
+        'gen.javaparser': 'GumTree tree generator for Java code (JavaParser based).',
+        'gen.jdt': 'GumTree tree generator for Java code (Eclipse JDT based).',
+        'gen.js': 'GumTree tree generator for JavaScript code (Rhino based).',
+        'gen.js-acorn': 'GumTree tree generator for JS. Requires jsparser.',
+        'gen.python': 'GumTree tree generator for Python. Requires pythonparser.',
+        'gen.ruby': 'GumTree tree generator for Ruby code (JRuby based).',
+        'gen.srcml': 'GumTree tree generator for C/C++, C# and Java code. Requires srcml.',
+        'gen.treesitter': 'GumTree tree generator for Python. Requires tree-sitter-parser.',
+        'gen.treesitter-ng': 'GumTree tree generator for tree-sitter-ng.',
+        'gen.xml': 'GumTree tree generator for XML code (JSoup based).',
+        'gen.yaml': 'GumTree tree generator for YAML code (SnakeYAML based).',
 ]
 
 configure(subprojects.findAll { !(it.name in ['dist', 'dist-native', 'benchmark']) }) { subproject ->
     apply plugin: "maven-publish"
     apply plugin: "signing"
 
-    publishing {        
+    publishing {
         publications {
             gumtreeDist(MavenPublication) {
                 from(components.java)

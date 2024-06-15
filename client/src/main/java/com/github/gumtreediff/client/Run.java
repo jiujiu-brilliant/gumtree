@@ -39,7 +39,6 @@ import org.atteo.classindex.ClassIndex;
 
 import java.io.*;
 
-import org.json.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
